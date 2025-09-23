@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>我的電子書</title>
+    <style>
+        body {
+            background: #f0f0f0;
+        }
+        #flipbook {
+            width: 800px;
+            height: 600px;
+        }
+    </style>
+    <script src="assets/turn.js"></script>
+</head>
+<body>
+
+    <div id="flipbook">
+        <div style="background-image:url(images/page1.jpg);"></div>
+        <div style="background-image:url(images/page2.jpg);"></div>
+        <div style="background-image:url(images/page3.jpg);"></div>
+        </div>
+
+    <script type="text/javascript">
+        // 初始化 turn.js
+        $("#flipbook").turn({
+            width: 800,
+            height: 600,
+            autoCenter: true
+        });
+    </script>
+
+</body>
+</html>
