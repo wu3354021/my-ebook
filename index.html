@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>我的1電子書</title>
+    <title>電子書Demo</title>
     <style>
         body {
+            margin: 0;
+            padding: 0;
             background: #f0f0f0;
+            overflow: hidden; /* 防止滾動條出現 */
         }
         #flipbook {
-            width: 960px;
-            height: 720px;
-            autoCenter: true
+            display: block;
         }
     </style>
     <script src="assets/jquery-3.7.1.min.js"></script>
@@ -28,17 +29,28 @@
         </div>
 
     <script type="text/javascript">
+        $(window).ready(function() {
+            // 這裡可以設定電子書的初始高度，根據你的圖片比例來決定
+            var bookHeight = $(window).width() * 0.9 * 0.75; // 假設圖片比例為 4:3
+        
         // 初始化 turn.js
-        $("#flipbook").turn({
-            width: 800,
-            height: 600,
-            autoCenter: true
-        });
+       $('#flipbook').turn({
+                width: $(window).width() * 0.9,
+                height: bookHeight,
+                autoCenter: true,
+                            });
+             $(window).bind('resize', function(){
+                var bookHeight = $(window).width() * 0.9 * 0.75; // 保持比例
+                $('#flipbook').turn('size', $(window).width() * 0.9, bookHeight);
+                                                });
+                         });
+
     </script>
 
 </body>
 
 </html>
+
 
 
 
