@@ -5,13 +5,17 @@
     <style>
         body {
             margin: 0;
-            padding: 0;
-            background: #f0f0f0;
             overflow: hidden; /* 防止滾動條出現 */
         }
         #flipbook {
-            display: block;
+        width: 100%; /* 讓容器佔滿整個瀏覽器寬度 */
+        height: 100vh; /* 讓容器佔滿整個瀏覽器高度 */
         }
+        #flipbook .page {
+        background-size: contain; /* 確保圖片完整顯示，不裁切 */
+        background-repeat: no-repeat; /* 避免圖片重複出現 */
+        background-position: center; /* 讓圖片在頁面中居中 */
+    }
     </style>
     <script src="assets/jquery-3.7.1.min.js"></script>
     <script src="assets/turn.min.js"></script>
@@ -50,6 +54,7 @@
 </body>
 
 </html>
+
 
 
 
