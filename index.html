@@ -34,19 +34,28 @@
 
     <script type="text/javascript">
         $(window).ready(function() {
-            // 這裡可以設定電子書的初始高度，根據你的圖片比例來決定
-            var bookHeight = $(window).width() * 0.9 * 0.75; // 假設圖片比例為 4:3
-        
+        // 獲取視窗的寬度和高度
+        var windowWidth = $(window).width();
+        var windowHeight = $(window).height();
+
+        // 根據視窗的長寬比例，計算電子書的尺寸
+        var bookWidth = windowWidth * 0.9;
+        var bookHeight = bookWidth / (960 / 720); // 使用你的圖片比例 (960 / 720) 計算高度
+
         // 初始化 turn.js
        $('#flipbook').turn({
-                width: $(window).width() * 0.9,
-                height: bookHeight,
-                autoCenter: true,
+            width: bookWidth,
+            height: bookHeight,
+            autoCenter: true
                             });
-             $(window).bind('resize', function(){
-                var bookHeight = $(window).width() * 0.9 * 0.75; // 保持比例
-                $('#flipbook').turn('size', $(window).width() * 0.9, bookHeight);
-                                                });
+        // 監聽視窗大小改變事件，確保響應式
+        $(window).bind('resize', function(){
+            var windowWidth = $(window).width();
+            var windowHeight = $(window).height();
+            var bookWidth = windowWidth * 0.9;
+            var bookHeight = bookWidth / (960 / 720);
+            $('#flipbook').turn('size', bookWidth, bookHeight);
+        });
                          });
 
     </script>
@@ -54,6 +63,7 @@
 </body>
 
 </html>
+
 
 
 
